@@ -24,8 +24,8 @@ spring:
     cache: false                   # 뭔지 모름
     prefix: classpath:/templates/  # Thymeleaf 템플릿 파일 경로 설정
     suffix: .html                  # Thymeleaf 템플릿 파일 확장자 설정
-#    view-names: thymeleaf/*
-    view-names: templates/*
+    view-names: thymeleaf/*
+#    view-names: templates/*
 #    enabled: false                 # 리졸버를 비활성화시 JSP와 둘다 사용가능
 
 
