@@ -6,6 +6,25 @@ on:
   workflow_dispatch:
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      # 저장소 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      # 현재 작업 디렉터리 확인
+      - name: Print working directory
+        run: pwd
+
+      # 현재 디렉터리의 파일 목록 출력
+      - name: List files in current directory
+        run: ls -la
+
+      # 특정 파일 검색
+      - name: Find specific file in workspace
+        run: find ${{ github.workspace }} -type f -name 'springboot.yml'
+
   buildImage:
     permissions:
       contents: read
