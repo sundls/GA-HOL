@@ -15,8 +15,7 @@ env:
   CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
   RESOURCE_GROUP: ${{ vars.RESOURCE_GROUP_NAME }}
   CLUSTER_NAME: ${{ vars.CLUSTER_NAME }}
-  DEPLOYMENT_MANIFEST_PATH: ${{ vars. DEPLOYMENT_MANIFEST_PATH }}
-
+  DEPLOYMENT_MANIFEST_PATH: /home/runner/work/GA-HOL/GA-HOL/springboot.yaml
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -56,3 +55,4 @@ jobs:
         with:
           action: deploy
           manifests:  /home/runner/work/GA-HOL/GA-HOL/springboot.yaml
+          kubectl-override: --validate=false
