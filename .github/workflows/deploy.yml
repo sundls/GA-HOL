@@ -15,7 +15,8 @@ env:
   CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
   RESOURCE_GROUP: ${{ vars.RESOURCE_GROUP_NAME }}
   CLUSTER_NAME: ${{ vars.CLUSTER_NAME }}
-  DEPLOYMENT_MANIFEST_PATH: /home/runner/work/GA-HOL/GA-HOL/springboot.yaml
+  DEPLOYMENT_MANIFEST_PATH: ${{ vars. DEPLOYMENT_MANIFEST_PATH }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -54,5 +55,4 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
-          manifests:  /home/runner/work/GA-HOL/GA-HOL/springboot.yaml
-          kubectl-override: --validate=false
+          manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
